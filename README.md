@@ -1,2 +1,1 @@
-# Olga-yapper
-Website for school newspaper 
+# THIS CODE IS NOT MINE, I USED AI, I WILL MAKE MY OWN CODE SOON THIS IS JUST WHILE I LEARN.
