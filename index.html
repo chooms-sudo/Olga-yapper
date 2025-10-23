@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('https://cdn.discordapp.com/attachments/1419549176856969299/1429685421365006376/image.png?ex=68f709ce&is=68f5b84e&hm=3c77980fa72d5b2fca078fa3288a5f32a1a076f71539ea24ffe9e00a0fb7c427&');
+            background-image: url('https://i.redd.it/3ma6nhepxbb81.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -20,17 +20,54 @@
             color: white;
         }
         
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
         .title {
-            font-size: 48px;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .error {
+            color: #ff4444;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .main-content {
+            display: none;
+            text-align: center;
         }
         
         .chat-box {
-            width: 350px;
+            width: 500px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-top: 20px;
         }
         
         .chat-tab {
@@ -43,19 +80,52 @@
         .chat-content {
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            height: 200px;
+            height: 317px;
             padding: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="title">OLGA Yapper</div>
+    <div class="login-box" id="loginBox">
+        <div class="title">Enter Token</div>
+        <input type="password" id="tokenInput" placeholder="Enter token">
+        <br>
+        <button onclick="checkToken()">Submit</button>
+        <div class="error" id="errorMsg">Invalid token!</div>
+    </div>
     
-    <div class="chat-box">
-        <div class="chat-tab">Newest Yapper</div>
-        <div class="chat-content">
-            good stuff coming soon
+    <div class="main-content" id="mainContent">
+        <div class="title">OLGA Yapper</div>
+        
+        <div class="chat-box">
+            <div class="chat-tab">Newest Yapper</div>
+            <div class="chat-content">
+good stuff coming soon
+            </div>
         </div>
     </div>
+
+    <script>
+        function checkToken() {
+            const token = document.getElementById('tokenInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+            const loginBox = document.getElementById('loginBox');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (token === 'olga17') {
+                loginBox.style.display = 'none';
+                mainContent.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+        
+        // Allow pressing Enter to submit
+        document.getElementById('tokenInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkToken();
+            }
+        });
+    </script>
 </body>
 </html>
